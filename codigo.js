@@ -1,14 +1,37 @@
 let datos, moneda, valorMoneda
 let repetir = "no"
 
-//creamos la funcion con la operacion
+
+class monedas {
+    constructor(id, tipo, valor) {
+        this.id = id
+        this.tipo = tipo
+        this.valor = valor
+    }
+}
+
+//moneda 3 es un ejemplo para utilizar un metodo ya que no veia un metodo util para usar en ningun lado pero dejo el ejemplo de que se usarlos
+
+const moneda1 = new monedas(1, "dolar", 238)
+const moneda2 = new monedas(2, "euro", 231)
+//------------------------
+const moneda3 = new monedas(3, "soles", 32)
+//------------------------
+
+//en lineas 51 y 54 utilizo el array de objetos
+
+const monedasArray = [moneda1, moneda2, moneda3]
+
+monedasArray.pop()
+
+// //creamos la funcion con la operacion
 
 const calculo = (datos, valorMoneda) => datos / valorMoneda;
 
 do {
     alert("Bienvenido a mi convertidor de pesos argentinos a euro/dolar")
 
-    //creamos el ingrese de datos y los posibles resultados erroneos que nos puede ingresar
+    //creamos el ingreso de datos y los posibles resultados erroneos que nos puede ingresar
 
     datos = parseFloat(prompt("Ingrese el monto en pesos a convertir"));
     if (isNaN(datos)) {
@@ -25,10 +48,10 @@ do {
 
     switch (moneda) {
         case "dolar":
-            valorMoneda = 238
+            valorMoneda = (monedasArray[0].valor)
             break
         case "euro":
-            valorMoneda = 231
+            valorMoneda = (monedasArray[1].valor)
             break
         default:
             alert("Algo salio mal :(")
